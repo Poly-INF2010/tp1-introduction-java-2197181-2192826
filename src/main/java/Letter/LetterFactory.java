@@ -2,6 +2,7 @@ package Letter;
 
 import Point.Point2d;
 import Shape.*;
+import org.w3c.dom.css.Rect;
 
 public final class LetterFactory {
     final static Double maxHeight = 150.0;
@@ -33,7 +34,18 @@ public final class LetterFactory {
      * @return BaseShape containing the letter C
      */
     public static BaseShape create_C() {
-        return null;
+        double a = maxHeight;
+        double b = maxWidth;
+
+        BaseShape letterC = new Ellipse(b,a);
+
+        BaseShape removeEllipse = new Ellipse(b/1.5, a/1.5);
+        BaseShape removeRect = new Rectangle(halfMaxWidth, halfMaxHeight);
+        removeRect = new BaseShape(removeRect.translate(removeRect.getCoords(), new Point2d(halfMaxWidth, 0.0)));
+        letterC.remove(removeEllipse);
+        letterC.remove(removeRect);
+
+        return letterC;
     }
 
     /** TODO
@@ -49,8 +61,26 @@ public final class LetterFactory {
      * @return BaseShape containing the letter H
      */
     public static BaseShape create_H() {
-        return null;
+        double width = halfMaxWidth;
+        double height = maxHeight;
+
+        BaseShape left = new Rectangle(width, height);
+        BaseShape right = new Rectangle(width, height);
+        BaseShape middle = new Rectangle(halfMaxHeight, width);
+
+        left = new BaseShape(left.translate(left.getCoords(), new Point2d(-halfMaxHeight / 2, 0.0)));
+        right = new BaseShape(right.translate(right.getCoords(), new Point2d(halfMaxHeight / 2, 0.0)));
+
+
+        BaseShape letterH = new BaseShape();
+
+        letterH.add(left);
+        letterH.add(right);
+        letterH.add(middle);
+
+        return letterH;
     }
+
 
     /** TODO
      * Create the letter N graphically
@@ -65,7 +95,15 @@ public final class LetterFactory {
      * @return BaseShape containing the letter O
      */
     public static BaseShape create_O() {
-        return null;
+        double a = maxHeight;
+        double b = maxWidth;
+
+        BaseShape letterO = new Ellipse(b,a);
+
+        BaseShape innerEllipse = new Ellipse(b/1.5, a/1.5);
+        letterO.remove(innerEllipse);
+
+        return letterO;
     }
 
 }

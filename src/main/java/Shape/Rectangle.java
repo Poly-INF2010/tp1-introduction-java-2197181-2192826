@@ -12,18 +12,17 @@ public class Rectangle extends BaseShape {
      * @param height Height of the rectangle
      */
     public Rectangle(Double width, Double height) {
-            super();
-            Double max_x = width / 2;
-            Double max_y = height / 2;
-            ArrayList<Point2d> coords = new ArrayList<Point2d>();
-            for(double y = max_y; y > -max_y; y -= .5) {
-                for (double x = max_x; x > -max_y; x -= .5) {
-                    coords.add(new Point2d(x, y));
-                }
+        super();
+        Double max_x = width / 2;
+        Double max_y = height / 2;
+        ArrayList<Point2d> coords = new ArrayList<Point2d>();
+        for(double y = max_y; y >= -max_y; y -= 0.5) {
+            for (double x = max_x; x >= -max_x; x -= 0.5) {
+                coords.add(new Point2d(x, y));
             }
-            addAll(coords);
+        }
+        addAll(coords);
     }
-
     /** TODO
      * Create a filled rectangle centered on (0, 0)
      * @param dimensions 2D point containing the width and height of the rectangle
