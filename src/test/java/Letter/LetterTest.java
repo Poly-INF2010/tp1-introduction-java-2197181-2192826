@@ -31,21 +31,21 @@ public class LetterTest {
         letterPlacer.placeNext('E');
         letterPlacer.saveImage("all", true);
 
-//        File tmpFile = new File("all.jpg");
-//        String output = tesseract.doOCR(tmpFile)
-//                .replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-//        String input = "bonnechance";
-//        boolean foundEnoughChars = findMatchingChars(output, input).doubleValue() > input.length() / 2;
-//
-//        try {
-//            Desktop dt = Desktop.getDesktop();
-//            File fileToOpen = foundEnoughChars ? letterPlacer.saveImage("image", false) : tmpFile;
-//            dt.open(fileToOpen);
-//        } catch (Exception e) {
-//            System.out.println("Unable to display the graphical message : " + e.getMessage());
-//        }
-//
-//        assertTrue(foundEnoughChars, "Nous ne pouvons pas reconnaitre assez de caracteres");
+        File tmpFile = new File("all.jpg");
+        String output = tesseract.doOCR(tmpFile)
+                .replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        String input = "bonnechance";
+        boolean foundEnoughChars = findMatchingChars(output, input).doubleValue() > input.length() / 2;
+
+        try {
+            Desktop dt = Desktop.getDesktop();
+            File fileToOpen = foundEnoughChars ? letterPlacer.saveImage("image", false) : tmpFile;
+            dt.open(fileToOpen);
+        } catch (Exception e) {
+            System.out.println("Unable to display the graphical message : " + e.getMessage());
+        }
+
+        assertTrue(foundEnoughChars, "Nous ne pouvons pas reconnaitre assez de caracteres");
     }
 
     private static Integer findMatchingChars(String str1, String str2) {

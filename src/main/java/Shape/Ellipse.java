@@ -17,17 +17,14 @@ public class Ellipse extends BaseShape {
         Double b = heightDiameter / 2;
         ArrayList<Point2d> coords = new ArrayList<Point2d>();
 
-        // Loop through a grid of points
         for (double y = -b; y <= b; y += 0.5) {
             for (double x = -a; x <= a; x += 0.5) {
-                // Check if the point (x, y) is inside the ellipse
                 if ((Math.pow(x, 2) / Math.pow(a, 2)) + (Math.pow(y, 2) / Math.pow(b, 2)) <= 1) {
                     coords.add(new Point2d(x, y));
                 }
             }
         }
 
-        // Add all the points to your ellipse
         addAll(coords);
     }
 
