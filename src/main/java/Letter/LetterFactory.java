@@ -19,8 +19,6 @@ public final class LetterFactory {
      * @return BaseShape containing the letter A
      */
     public static BaseShape create_A() {
-        // return null;
-
         double width = halfMaxWidth - stripeThickness;
         double height = maxHeight - stripeThickness;
 
@@ -28,11 +26,9 @@ public final class LetterFactory {
         BaseShape right = new Rectangle(width, height);
         BaseShape middle = new Rectangle(halfMaxHeight, width);
 
-        // rotate left and right
         left = new BaseShape(left.rotate(left.getCoords(), Math.toRadians(20)));
         right = new BaseShape(right.rotate(right.getCoords(), Math.toRadians(-20)));
 
-        // translate left and right
         left = new BaseShape(left.translate(left.getCoords(), new Point2d(-halfMaxHeight / 3, 0.0)));
         right = new BaseShape(right.translate(right.getCoords(), new Point2d(halfMaxHeight / 3, 0.0)));
 
@@ -49,25 +45,21 @@ public final class LetterFactory {
      * @return BaseShape containing the letter B
      */
     public static BaseShape create_B() {
-        // return null;
-        double width = halfMaxWidth - stripeThickness;
-        double height = maxHeight - stripeThickness;
+        double circleWidth = halfMaxHeight;
+        double circleHeight = (maxHeight-stripeThickness)/2;
 
-        // create one reactangle and 2 ellipses
-        BaseShape left = new Rectangle(width, height);
-        BaseShape top = new Circle(halfMaxHeight);
-        BaseShape bottom = new Circle(halfMaxHeight);
+        BaseShape left = new Rectangle(halfMaxWidth-stripeThickness, maxHeight-stripeThickness);
+        BaseShape top = new Ellipse(circleWidth, circleHeight);
+        BaseShape bottom = new Ellipse(circleWidth, circleHeight);
 
-        top.remove(new Circle(halfMaxHeight - stripeThickness));
-        bottom.remove(new Circle(halfMaxHeight - stripeThickness));
+        top.remove(new Ellipse(circleWidth-stripeThickness, circleHeight-stripeThickness));
+        bottom.remove(new Ellipse(circleWidth-stripeThickness, circleHeight-stripeThickness));
 
-        // translate the shapes to the correct position
         top = new BaseShape(top.translate(top.getCoords(), new Point2d(0.0, halfMaxHeight / 2)));
         bottom = new BaseShape(
-                bottom.translate(bottom.getCoords(), new Point2d(0.0, -halfMaxHeight / 2)));
-        left = new BaseShape(left.translate(left.getCoords(), new Point2d(-halfMaxHeight / 2, 0.0)));
+                bottom.translate(bottom.getCoords(), new Point2d(0.0, -(halfMaxHeight) / 2)));
+        left = new BaseShape(left.translate(left.getCoords(), new Point2d(-(circleWidth-stripeThickness)/2, 0.0)));
 
-        // create the letter B
         BaseShape letterB = new BaseShape();
         letterB.add(left).add(top).add(bottom);
 
@@ -102,7 +94,6 @@ public final class LetterFactory {
      * @return BaseShape containing the letter E
      */
     public static BaseShape create_E() {
-        // return null;
         double width = halfMaxWidth - stripeThickness;
         double height = maxHeight - stripeThickness;
 
@@ -159,7 +150,6 @@ public final class LetterFactory {
      * @return BaseShape containing the letter N
      */
     public static BaseShape create_N() {
-        // return null;
         double width = halfMaxWidth - stripeThickness;
         double height = maxHeight - stripeThickness;
 
