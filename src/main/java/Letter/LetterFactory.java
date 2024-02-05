@@ -10,7 +10,6 @@ public final class LetterFactory {
     final static Double halfMaxHeight = maxHeight / 2;
     final static Double halfMaxWidth = maxWidth / 2;
     final static Double stripeThickness = maxHeight / 8;
-    final static Double halfStripeThickness = stripeThickness / 2;
 
     /**
      * TODO

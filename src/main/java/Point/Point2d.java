@@ -18,7 +18,7 @@ public class Point2d extends AbstractPoint {
      * @param vector Vector containing X and Y coordinates
      */
     public Point2d(Double[] vector) {
-        this(vector[0], vector[1]); /* hm */
+        this(vector[0], vector[1]);
     }
 
     /**
