@@ -1,0 +1,7 @@
+Points	5/5
+Formes	4/5
+Lettres	4/5
+Qualité de code et Design	4/5
+Total	17/20
+La methode add(baseshape) doit utiliser addAll ( duplication de code)
+La lettre B ne ressemble pas à un B
